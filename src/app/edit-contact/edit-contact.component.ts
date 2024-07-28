@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { Contact } from '../models/contact';
 
 @Component({
-  selector: 'app-contact-detail',
+  selector: 'app-edit-contact',
   standalone: true,
   imports: [],
-  templateUrl: './contact-detail.component.html',
-  styleUrl: './contact-detail.component.scss'
+  templateUrl: './edit-contact.component.html',
+  styleUrl: './edit-contact.component.scss'
 })
-export class ContactDetailComponent {
+export class EditContactComponent {
 
 }
