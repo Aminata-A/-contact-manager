@@ -7,6 +7,7 @@ import { Contact } from './models/contact';
 export class ContactService {
 
   private contactsKey = 'contacts';
+  private trashKey = 'trash';
   constructor() { }
 
   getContacts(userId: string): Contact[] {
@@ -40,4 +41,19 @@ export class ContactService {
           console.warn('Contact non trouvé pour mise à jour:', updatedContact.id); // Log pour déboguer
         }
       }
+
+          // Méthode pour supprimer un contact
+          deleteContact(contactId: string): void {
+            let contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+            const contact = contacts.find((c: Contact) => c.id === contactId);
+            if (contact) {
+              contacts = contacts.filter((c: Contact) => c.id !== contactId);
+              localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
+              
+              const trash = JSON.parse(localStorage.getItem(this.trashKey) || '[]');
+              trash.push(contact);
+              localStorage.setItem(this.trashKey, JSON.stringify(trash));
+            }
+          }
+        
 }
