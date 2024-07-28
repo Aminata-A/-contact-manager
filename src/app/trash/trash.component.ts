@@ -5,11 +5,22 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trash',
-  standalone: true,
-  imports: [],
+  standalone  : true,
+  imports: [CommonModule],
   templateUrl: './trash.component.html',
   styleUrl: './trash.component.scss'
 })
-export class TrashComponent {
+export class TrashComponent implements OnInit {
+  trash: Contact[] = [];
 
+  constructor(private contactService: ContactService) {}
+
+  ngOnInit(): void {
+    // this.trash = this.contactService.getTrash();
+  }
+
+  // restoreContact(contactId: string): void {
+  //   this.contactService.restoreContact(contactId);
+  //   this.ngOnInit(); // Recharge les contacts après restauration
+  // }
 }

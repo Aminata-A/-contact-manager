@@ -1,1 +1,34 @@
-<p>contact-list works!</p>
+<div class="container my-5">
+    <!-- Alignement du bouton et de la barre de recherche -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <a routerLink="/add-contact" class="btn btn-primary">Ajouter un contact</a>
+      <!-- <input
+        type="text"
+        class="form-control w-50"
+        placeholder="Rechercher par nom ou prénom"
+        [(ngModel)]="searchTerm"
+        (input)="searchContacts()"
+      /> -->
+    </div>
+  
+    <div class="card p-4 shadow-sm">
+      <h2 class="text-center mb-4">Mes Contacts</h2>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let contact of contacts">
+          <div>
+            <h5 class="mb-1">{{ contact.prenom }} {{ contact.nom }}</h5>
+            <small class="text-muted">Cliquer pour voir plus</small>
+          </div>
+          <div>
+            <button class="btn btn-warning btn-sm me-2" (click)="editContact(contact.id); $event.stopPropagation()">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id); $event.stopPropagation()">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

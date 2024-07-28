@@ -1,1 +1,20 @@
-<p>trash works!</p>
+<div class="container my-5">
+    <div class="card p-4 shadow-sm trash-list">
+      <h2 class="text-center mb-4">Corbeille</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let contact of trash">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ contact.nom }} {{ contact.prenom }}</h5>
+              <div class="mt-auto d-flex justify-content-between">
+                <!-- <button class="btn btn-success btn-sm" (click)="restoreContact(contact.id)">
+                  <i class="fas fa-undo"></i> Restaurer
+                </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
