@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContactService } from '.././contact.service';
+import { Contact } from '.././models/contact';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trash',
