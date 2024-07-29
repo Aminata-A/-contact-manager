@@ -34,6 +34,17 @@ export class ContactService {
           localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
         }
       }
+      getContactById(id: string): Contact | undefined {
+        const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+        const contact = contacts.find((contact: Contact) => contact.id === id);
+        if (contact) {
+          // Convertir les chaînes de date en objets Date
+          if (contact.createdAt) contact.createdAt = new Date(contact.createdAt);
+          if (contact.updatedAt) contact.updatedAt = new Date(contact.updatedAt);
+        }
+        return contact;
+      }
+    
 
           // Méthode pour supprimer un contact
           deleteContact(contactId: string): void {
@@ -48,5 +59,17 @@ export class ContactService {
               localStorage.setItem(this.trashKey, JSON.stringify(trash));
             }
           }
+
+
+  // Nouvelle méthode pour rechercher des contacts
+  searchContacts(searchTerm: string): Contact[] {
+    const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    return contacts.filter((contact: Contact) =>
+      contact.nom.toLowerCase().includes(lowerCaseSearchTerm) ||
+      contact.prenom.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  }
         
 }
