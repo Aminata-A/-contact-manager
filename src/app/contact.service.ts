@@ -21,29 +21,38 @@ export class ContactService {
     console.log('Contact ajouté à localStorage:', contacts); // Log pour vérifier
   }
 
-  updateContact(updatedContact: Contact): void {
-    const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
-    const index = contacts.findIndex((contact: Contact) => contact.id === updatedContact.id);
-    if (index !== -1) {
-      contacts[index] = updatedContact;
-      localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
-    }
-  }
 
-  deleteContact(contactId: string): void {
-    let contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
-    const contact = contacts.find((c: Contact) => c.id === contactId);
-    if (contact) {
-      contacts = contacts.filter((c: Contact) => c.id !== contactId);
-      localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
-      
-      const trash = JSON.parse(localStorage.getItem(this.trashKey) || '[]');
-      trash.push(contact);
-      localStorage.setItem(this.trashKey, JSON.stringify(trash));
-    }
-  }
 
-  getTrash(): Contact[] {
+      // Méthode pour mettre à jour un contact
+      updateContact(updatedContact: Contact): void {
+        const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+        const index = contacts.findIndex((contact: Contact) => contact.id === updatedContact.id);
+        if (index !== -1) {
+          contacts[index] = updatedContact;
+          localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
+        }
+      }
+
+    
+
+          // Méthode pour supprimer un contact
+          deleteContact(contactId: string): void {
+            let contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+            const contact = contacts.find((c: Contact) => c.id === contactId);
+            if (contact) {
+              contacts = contacts.filter((c: Contact) => c.id !== contactId);
+              localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
+              
+              const trash = JSON.parse(localStorage.getItem(this.trashKey) || '[]');
+              trash.push(contact);
+              localStorage.setItem(this.trashKey, JSON.stringify(trash));
+            }
+          }
+
+
+
+   // Méthode pour obtenir les contacts supprimés
+   getTrash(): Contact[] {
     return JSON.parse(localStorage.getItem(this.trashKey) || '[]');
   }
 
@@ -59,6 +68,7 @@ export class ContactService {
       localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
     }
   }
+
 
   getContactById(id: string): Contact | undefined {
     const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
@@ -80,4 +90,5 @@ export class ContactService {
       contact.prenom.toLowerCase().includes(lowerCaseSearchTerm)
     );
   }
+
 }
