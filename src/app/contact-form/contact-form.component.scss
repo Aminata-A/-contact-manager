@@ -1,0 +1,29 @@
+// Couleurs personnalisées
+$violet: #6a0dad;
+$violet-light: #8b00ff;
+$violet-dark: #4b0082;
+
+// Stylisation du formulaire de contact
+.contact-form {
+  .form-label {
+    color: $violet;
+    font-weight: bold;
+  }
+
+  .form-control {
+    border: 1px solid $violet-light;
+    &:focus {
+      border-color: $violet-dark;
+      box-shadow: 0 0 5px rgba($violet-dark, 0.5);
+    }
+  }
+
+  .btn-violet {
+    background-color: $violet;
+    border-color: $violet;
+    &:hover {
+      background-color: $violet-dark;
+      border-color: $violet-dark;
+    }
+  }
+}

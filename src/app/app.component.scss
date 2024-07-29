@@ -1,0 +1,47 @@
+// Couleurs personnalisées
+$violet: #6a0dad;
+$violet-light: #8b00ff;
+$violet-dark: #4b0082;
+
+// Barre de navigation violette
+.bg-violet {
+  background-color: $violet;
+}
+
+// Texte blanc
+.text-white {
+  color: #fff;
+}
+
+// Styles pour la navigation
+.navbar {
+  .nav-link {
+    color: #fff;
+    transition: color 0.2s;
+
+    &.active {
+      color: $violet-light;
+    }
+
+    &:hover {
+      color: $violet-dark;
+    }
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+    }
+  }
+}
