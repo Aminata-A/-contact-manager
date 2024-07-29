@@ -14,7 +14,12 @@
           <label for="confirmPassword">Confirmer le mot de passe:</label>
           <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">S'inscrire</button>
+        <div class=" ">
+          <button type="submit" class="btn btn-primary btn-block mt-3">S'inscrire</button>
+          <div class="text-center mt-3">
+            <a routerLink="/login" class="btn btn-violet">Se connecter</a>
+          </div>
+        </div>
         <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
         <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
       </form>

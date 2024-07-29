@@ -10,8 +10,12 @@
           <label for="password">Mot de passe:</label>
           <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
         </div>
+        <div class="d-flex justify-content-between">
         <button type="submit" class="btn btn-primary btn-block mt-3">Se connecter</button>
         <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+        <a routerLink="/register" class="btn btn-violet">S'incrire</a>
+      </div>
+
       </form>
     </div>
   </div>
