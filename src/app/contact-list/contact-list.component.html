@@ -1,1 +1,39 @@
-<p>contact-list works!</p>
+<div class="container my-5">
+  <!-- Alignement du bouton et de la barre de recherche -->
+  <div class="d-flex justify-content-around align-items-center mb-4">
+    <a routerLink="/add-contact" class="btn btn-primary">Ajouter un contact</a>
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Rechercher par nom ou prénom"
+      [(ngModel)]="searchTerm"
+      (input)="searchContacts()"
+    />
+  </div>
+
+  <div class="card p-4 shadow-sm">
+    <h2 class="text-center mb-4">Mes Contacts</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let contact of contacts">
+        <div class="card h-100 border-primary">
+          <img [src]="contact.image" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="Photo de profil" style="width: 150px; height: 150px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary text-center" (click)="onSelect(contact)" style="cursor: pointer;">
+              {{ contact.prenom }} {{ contact.nom }}
+            </h5>
+            <p class="card-text text-center">{{ contact.email }}</p>
+            <p class="card-text text-center">{{ contact.telephone }}</p>
+            <div class="mt-auto d-flex justify-content-around">
+              <button class="btn btn-warning btn-sm" (click)="editContact(contact.id); $event.stopPropagation()">
+                <i class="fas fa-edit"></i> Modifier
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id); $event.stopPropagation()">
+                <i class="fas fa-trash-alt"></i> Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

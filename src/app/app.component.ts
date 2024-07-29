@@ -1,13 +1,46 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { TrashComponent } from './trash/trash.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ContactListComponent,
+    TrashComponent,
+    ContactDetailComponent,
+    ContactFormComponent,
+    LoginComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'contact-manager';
+export class AppComponent implements OnInit {
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.authService.loggedIn$.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+      if (this.isLoggedIn) {
+        this.router.navigate(['/contacts']);  // Optionnel: redirigez l'utilisateur vers Contacts après connexion
+      }
+    });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }
+
