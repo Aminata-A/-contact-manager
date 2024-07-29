@@ -25,8 +25,8 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
   const contactId = this.route.snapshot.paramMap.get('id');
   if (contactId) {
-    // this.contact = this.contactService.getContactById(contactId) || null;
-    console.log('Détails du contact:', this.contact); // Vérifiez si updatedAt est bien présent
+    this.contact = this.contactService.getContactById(contactId) || null;
+    console.log('Détails du contact:', this.contact);
   }
 }
   
