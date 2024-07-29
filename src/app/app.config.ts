@@ -5,6 +5,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { TrashComponent } from './trash/trash.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Route[] = [
   { path: 'contacts', component: ContactListComponent },
@@ -12,6 +13,7 @@ const routes: Route[] = [
   { path: 'contact-detail/:id', component: ContactDetailComponent },
   { path: 'edit-contact/:id', component: EditContactComponent },
   { path: 'trash', component: TrashComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }

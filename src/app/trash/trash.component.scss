@@ -1,0 +1,31 @@
+// Couleurs personnalisées
+$violet: #6a0dad;
+$violet-light: #8b00ff;
+$violet-dark: #4b0082;
+
+// Stylisation de la corbeille
+.trash-list {
+  .card {
+    border: 1px solid $violet-light;
+  }
+
+  .text-center {
+    color: $violet;
+  }
+
+  .btn-violet {
+    background-color: $violet;
+    border-color: $violet;
+    &:hover {
+      background-color: $violet-dark;
+      border-color: $violet-dark;
+    }
+  }
+
+  .card-title {
+    color: $violet-dark;
+    strong {
+      color: $violet;
+    }
+  }
+}

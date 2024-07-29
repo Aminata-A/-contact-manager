@@ -16,11 +16,11 @@ export class TrashComponent implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
-    // this.trash = this.contactService.getTrash();
+    this.trash = this.contactService.getTrash();
   }
 
   restoreContact(contactId: string): void {
-    // this.contactService.restoreContact(contactId);
+    this.contactService.restoreContact(contactId);
     this.ngOnInit(); // Recharge les contacts après restauration
   }
 }
