@@ -24,7 +24,7 @@ export class ContactListComponent implements OnInit {
     const currentUser = this.authService.getCurrentUser();
     if (currentUser) {
       this.contacts = this.contactService.getContacts(currentUser.id);
-      console.log(this.contacts); // Vérifiez si les contacts sont bien récupérés
+      console.log(this.contacts); 
     }
   }
 
@@ -32,20 +32,20 @@ export class ContactListComponent implements OnInit {
     this.router.navigate(['/edit-contact', id]);
   }
   onSelect(contact: Contact): void {
-    this.router.navigate(['/contact-detail', contact.id]); // Navigue vers les détails du contact
+    this.router.navigate(['/contact-detail', contact.id]); 
   }
 
   deleteContact(contactId: string): void {
-    console.log('Suppression du contact avec ID:', contactId); // Vérifiez que l'ID est bien passé
+    console.log('Suppression du contact avec ID:', contactId); 
     this.contactService.deleteContact(contactId);
-    this.ngOnInit(); // Recharge les contacts après suppression
+    this.ngOnInit(); 
   }
 
   
 
   searchContacts(): void {
     if (this.searchTerm.trim()) {
-      // this.contacts = this.contactService.searchContacts(this.searchTerm);
+      this.contacts = this.contactService.searchContacts(this.searchTerm);
     } else {
       const currentUser = this.authService.getCurrentUser();
       if (currentUser) {
