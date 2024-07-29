@@ -68,8 +68,31 @@ export class ContactService {
 
     return contacts.filter((contact: Contact) =>
       contact.nom.toLowerCase().includes(lowerCaseSearchTerm) ||
+
+
+
+    
       contact.prenom.toLowerCase().includes(lowerCaseSearchTerm)
     );
   }
+
+   // Méthode pour obtenir les contacts supprimés
+   getTrash(): Contact[] {
+    return JSON.parse(localStorage.getItem(this.trashKey) || '[]');
+  }
+  restoreContact(contactId: string): void {
+    let trash = JSON.parse(localStorage.getItem(this.trashKey) || '[]');
+    const contact = trash.find((c: Contact) => c.id === contactId);
+    if (contact) {
+      trash = trash.filter((c: Contact) => c.id !== contactId);
+      localStorage.setItem(this.trashKey, JSON.stringify(trash));
+      
+      const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+      contacts.push(contact);
+      localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
+    }
+  }
+
+ 
         
 }
