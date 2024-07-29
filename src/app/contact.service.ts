@@ -61,4 +61,15 @@ export class ContactService {
           }
 
 
+  // Nouvelle méthode pour rechercher des contacts
+  searchContacts(searchTerm: string): Contact[] {
+    const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    return contacts.filter((contact: Contact) =>
+      contact.nom.toLowerCase().includes(lowerCaseSearchTerm) ||
+      contact.prenom.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  }
+        
 }
