@@ -24,9 +24,9 @@ export class EditContactComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    // if (id) {
-    //   this.contact = this.contactService.getContactById(id);
-    // }
+    if (id) {
+      // this.contact = this.contactService.getContactById(id);
+    }
   }
 
   saveContact(): void {

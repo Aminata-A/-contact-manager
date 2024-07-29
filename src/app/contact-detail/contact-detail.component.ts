@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   standalone: true,
   imports: [CommonModule, RouterModule],
-  selector: 'app-contact-details',
+  selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
@@ -21,15 +21,18 @@ export class ContactDetailComponent implements OnInit {
     private router: Router
   ) {}
 
+ 
   ngOnInit(): void {
-    const contactId = this.route.snapshot.paramMap.get('id');
-    // if (contactId) {
-    //   this.contact = this.contactService.getContactById(contactId) || null;
-    //   console.log('Détails du contact:', this.contact); // Vérifiez si updatedAt est bien présent
-    // }
+  const contactId = this.route.snapshot.paramMap.get('id');
+  if (contactId) {
+    // this.contact = this.contactService.getContactById(contactId) || null;
+    console.log('Détails du contact:', this.contact); // Vérifiez si updatedAt est bien présent
   }
+}
+  
 
   goBack(): void {
     this.router.navigate(['/contacts']);
   }
 }
+

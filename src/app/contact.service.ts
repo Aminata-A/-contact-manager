@@ -27,18 +27,11 @@ export class ContactService {
 
       // Méthode pour mettre à jour un contact
       updateContact(updatedContact: Contact): void {
-        console.log('updateContact appelé avec:', updatedContact); // Log pour déboguer
         const contacts = JSON.parse(localStorage.getItem(this.contactsKey) || '[]');
-        
-        // Trouver l'index du contact à mettre à jour
         const index = contacts.findIndex((contact: Contact) => contact.id === updatedContact.id);
-        
         if (index !== -1) {
           contacts[index] = updatedContact;
           localStorage.setItem(this.contactsKey, JSON.stringify(contacts));
-          console.log('Contact mis à jour dans localStorage:', contacts); // Log pour vérifier
-        } else {
-          console.warn('Contact non trouvé pour mise à jour:', updatedContact.id); // Log pour déboguer
         }
       }
 

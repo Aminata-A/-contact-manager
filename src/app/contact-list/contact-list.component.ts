@@ -32,7 +32,7 @@ export class ContactListComponent implements OnInit {
     this.router.navigate(['/edit-contact', id]);
   }
   onSelect(contact: Contact): void {
-    this.router.navigate(['/contact-details', contact.id]); // Navigue vers les détails du contact
+    this.router.navigate(['/contact-detail', contact.id]); // Navigue vers les détails du contact
   }
 
   deleteContact(contactId: string): void {
@@ -43,14 +43,14 @@ export class ContactListComponent implements OnInit {
 
   
 
-  // searchContacts(): void {
-  //   if (this.searchTerm.trim()) {
-  //     this.contacts = this.contactService.searchContacts(this.searchTerm);
-  //   } else {
-  //     const currentUser = this.authService.getCurrentUser();
-  //     if (currentUser) {
-  //     this.contacts = this.contactService.getContacts(currentUser.id);
-  //     }
-  //   }
-  // }
+  searchContacts(): void {
+    if (this.searchTerm.trim()) {
+      // this.contacts = this.contactService.searchContacts(this.searchTerm);
+    } else {
+      const currentUser = this.authService.getCurrentUser();
+      if (currentUser) {
+      this.contacts = this.contactService.getContacts(currentUser.id);
+      }
+    }
+  }
 }

@@ -19,8 +19,8 @@ export class TrashComponent implements OnInit {
     // this.trash = this.contactService.getTrash();
   }
 
-  // restoreContact(contactId: string): void {
-  //   this.contactService.restoreContact(contactId);
-  //   this.ngOnInit(); // Recharge les contacts après restauration
-  // }
+  restoreContact(contactId: string): void {
+    // this.contactService.restoreContact(contactId);
+    this.ngOnInit(); // Recharge les contacts après restauration
+  }
 }

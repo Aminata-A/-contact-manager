@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { TrashComponent } from './trash/trash.component';
-import { ContactDetailComponent } from './contact-details/contact-details.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
     RouterModule,
     ContactListComponent,
     TrashComponent,
-    ContactDetailsComponent,
+    ContactDetailComponent,
     ContactFormComponent,
     LoginComponent
   ],
