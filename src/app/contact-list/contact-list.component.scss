@@ -1,38 +1,63 @@
+// Couleurs personnalisées
+$violet: #6a0dad;
+$violet-light: #8b00ff;
+$violet-dark: #4b0082;
+
+// Bouton violet
+.btn-violet {
+  background-color: $violet;
+  color: #fff;
+
+  &:hover {
+    background-color: $violet-dark;
+  }
+}
+
+// Texte violet
+.text-violet {
+  color: $violet;
+}
+
+// Bordure violette
+.border-violet {
+  border-color: $violet;
+}
+
+// Carte avec transition et hover
 .card {
-    transition: transform 0.2s, box-shadow 0.2s;
-  
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-img-top {
+    border-bottom: 1px solid $violet-light;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    color: $violet;
+    cursor: pointer;
+    transition: color 0.2s;
+
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-  
-    .card-img-top {
-      border-bottom: 1px solid #dee2e6;
-    }
-  
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  
-    .card-title {
-      color: #007bff;
-      cursor: pointer;
-      transition: color 0.2s;
-  
-      &:hover {
-        color: #0056b3;
-      }
-    }
-  
-    .btn {
-      display: flex;
-      align-items: center;
-  
-      i {
-        margin-right: 5px;
-      }
+      color: $violet-dark;
     }
   }
-  
+
+  .btn {
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}
