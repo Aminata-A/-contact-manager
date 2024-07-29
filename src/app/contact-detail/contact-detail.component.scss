@@ -1,0 +1,35 @@
+// Couleurs personnalisées
+$violet: #6a0dad;
+$violet-light: #8b00ff;
+$violet-dark: #4b0082;
+
+// Stylisation des détails de contact
+.contact-details {
+  .card {
+    border: 1px solid $violet-light;
+  }
+
+  .text-center {
+    color: $violet;
+  }
+
+  .btn-violet {
+    background-color: $violet;
+    border-color: $violet;
+    &:hover {
+      background-color: $violet-dark;
+      border-color: $violet-dark;
+    }
+  }
+
+  .rounded-circle {
+    border: 2px solid $violet;
+  }
+
+  p {
+    color: $violet-dark;
+    strong {
+      color: $violet;
+    }
+  }
+}
